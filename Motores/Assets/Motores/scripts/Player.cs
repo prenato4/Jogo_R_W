@@ -79,6 +79,7 @@ public class Player : MonoBehaviour
                 AN.SetInteger("transition", 2);
                 RIG.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 IsJumPing = true;
+                
             }
         }   
     }
@@ -105,7 +106,8 @@ public class Player : MonoBehaviour
             {
                 Power.GetComponent<ATACK>().Isright = true;
             }
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(0.6f);
+            isfire = false;
             AN.SetInteger("transition", 0);
         }
     }

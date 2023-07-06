@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,15 @@ public class ATACK : MonoBehaviour
 
     private Rigidbody2D RIG;
     public float SPEED;
+    public int damage;
+    
 
     public bool Isright;
     
     // Start is called before the first frame update
     void Start()
     {
+        
         RIG = GetComponent<Rigidbody2D>();
         Destroy(gameObject, 2f);
     }
@@ -31,4 +35,16 @@ public class ATACK : MonoBehaviour
         }
         
     }
+
+    private void OnTriggerEnter2D(Collider2D CO)
+    {
+        if (CO.gameObject.tag == "Enemy")
+        {
+            CO.GetComponent<Warrior>().Damage(damage);
+        }
+        
+            
+        
+    }
 }
+
