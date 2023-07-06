@@ -9,10 +9,15 @@ public class Player : MonoBehaviour
 
     public float speed;
     public float jumpForce;
+    
+    public GameObject power;
+    public Transform spawn;
 
+    private bool isfire;
     private bool IsJumPing;
     private Rigidbody2D RIG;
     private Animator AN;
+    private float M;
     
     // Start is called before the first frame update
     void Start()
@@ -25,13 +30,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
         Jump();
+        AT();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     void Move()
     {
-        float M = Input.GetAxis("Horizontal");
+        M = Input.GetAxis("Horizontal");
 
         RIG.velocity = new Vector2(M * speed, RIG.velocity.y);
 
@@ -53,7 +63,7 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
-        if (M == 0 && !IsJumPing)
+        if (M == 0 && !IsJumPing && !isfire)
         {
             AN.SetInteger("transition", 0);
         }
@@ -73,6 +83,33 @@ public class Player : MonoBehaviour
         }   
     }
 
+    void AT()
+    {
+        StartCoroutine("ATA");
+    }
+
+    IEnumerator ATA()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            isfire = true;
+            AN.SetInteger("transition", 3);
+            GameObject Power = Instantiate(power, spawn.position, spawn.rotation);
+
+            if (transform.rotation.y == 0 )
+            {
+                Power.GetComponent<ATACK>().Isright = true;
+            }
+
+            if (transform.rotation.y == 180)
+            {
+                Power.GetComponent<ATACK>().Isright = true;
+            }
+            yield return new WaitForSeconds(0.8f);
+            AN.SetInteger("transition", 0);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D CO)
     {
         if (CO.gameObject.layer == 6)
@@ -80,4 +117,5 @@ public class Player : MonoBehaviour
             IsJumPing = false;
         }
     }
+    
 }
