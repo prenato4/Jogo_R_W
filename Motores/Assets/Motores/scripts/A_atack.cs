@@ -39,6 +39,7 @@ public class A_atack : MonoBehaviour
         if (CO.gameObject.tag == "animals")
         {
             CO.GetComponent<Animals>().Damage(damage);
+            Destroy(gameObject);
         }
         
             

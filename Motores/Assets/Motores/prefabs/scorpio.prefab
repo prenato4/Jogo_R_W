@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7380469227164651295}
   m_Layer: 0
   m_Name: scorpio
-  m_TagString: Enemy
+  m_TagString: animals
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

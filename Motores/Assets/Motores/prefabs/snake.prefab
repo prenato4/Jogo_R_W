@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6052941035461702358}
   m_Layer: 0
   m_Name: snake
-  m_TagString: Enemy
+  m_TagString: animals
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1079855572, guid: a27cc141b3efaee488374814375a06c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
