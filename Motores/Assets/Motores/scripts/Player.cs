@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D RIG;
     private Animator AN;
     private float M;
+
+    
     
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,9 @@ public class Player : MonoBehaviour
         AN = GetComponent<Animator>();
         
         gamecontroller.instance.UpdateLives(health);
+        
+        
+        
     }
 
     // Update is called once per frame
@@ -135,6 +140,14 @@ public class Player : MonoBehaviour
             
         }
     }
+
+    public void IncreaseLife(int value)
+    {
+        health += value;
+        gamecontroller.instance.UpdateLives(health);
+    }
+    
+    
 
     private void OnCollisionEnter2D(Collision2D CO)
     {
