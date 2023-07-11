@@ -1,3 +1,5 @@
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +14,7 @@ public class Warrior : MonoBehaviour
     public bool walkRight;
 
     public int health;
+    public int damage;
 
     private Rigidbody2D RIG;
     // Start is called before the first frame update
@@ -51,6 +54,14 @@ public class Warrior : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D co)
+    {
+        if (co.gameObject.tag == "Player")
+        {
+            co.gameObject.GetComponent<Player>().Damage(damage);
         }
     }
 }
