@@ -137,7 +137,7 @@ public class Player : MonoBehaviour
         
         if (health <= 0)
         {
-            
+            gamecontroller.instance.GameOver();
         }
     }
 
@@ -154,6 +154,11 @@ public class Player : MonoBehaviour
         if (CO.gameObject.layer == 6)
         {
             IsJumPing = false;
+        }
+        
+        if (CO.gameObject.layer == 8)
+        {
+            gamecontroller.instance.GameOver();
         }
     }
     

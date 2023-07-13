@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class Animals : MonoBehaviour
     public bool walkRight;
 
     public int health;
+    public int damage = 1;
 
     private Rigidbody2D RIG;
     // Start is called before the first frame update
@@ -50,6 +52,14 @@ public class Animals : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D CO)
+    {
+        if (CO.gameObject.tag == "Player")
+        {
+            CO.gameObject.GetComponent<Player>().Damage(damage);
         }
     }
 }

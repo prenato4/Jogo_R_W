@@ -81,5 +81,7 @@ public class gamecontroller : MonoBehaviour
     {
         GameOverobj.SetActive(true);
     }
+
+    
 }
 

@@ -17,7 +17,7 @@ public class CAM : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (player.position.x >= -2.3 && player.position.x < 287)
+        if (player.position.x >= -2.3 && player.position.x < 659.0)
         {
             Vector3 following = new Vector3(player.position.x, player.position.y, transform.position.z);
 
