@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
 
     IEnumerator ATA()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             isfire = true;
             AN.SetInteger("transition", 3);
@@ -113,12 +113,10 @@ public class Player : MonoBehaviour
             {
                 Power.GetComponent<ATACK>().Isright = true;
             }
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.5f);
             isfire = false;
             AN.SetInteger("transition", 0);
         }
-
-        
     }
 
     public void Damage(int DM)
@@ -154,16 +152,18 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D CO)
     {
-        if (CO.gameObject.layer == 6)
-        {
-            IsJumPing = false;
-        }
-        
+
         if (CO.gameObject.layer == 8)
         {
             gamecontroller.instance.GameOver();
         }
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D CL)
+    {
+        if (CL.gameObject.layer == 6)
+        {
+            IsJumPing = false;
+        }
+    }
 }
