@@ -18,6 +18,7 @@ public class gamecontroller : MonoBehaviour
 
     public GameObject PAUSEoBJ;
     public GameObject GameOverobj;
+    
 
     private bool IsPause;
     

@@ -16,11 +16,14 @@ public class Warrior : MonoBehaviour
     public int health;
     public int damage;
 
+    private Animator An;
+
     private Rigidbody2D RIG;
     // Start is called before the first frame update
     void Start()
     {
         RIG = GetComponent<Rigidbody2D>();
+        An = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -49,6 +52,7 @@ public class Warrior : MonoBehaviour
 
     public void Damage(int D)
     {
+        An.SetTrigger("hit");
         health -= D;
 
         if (health <= 0)

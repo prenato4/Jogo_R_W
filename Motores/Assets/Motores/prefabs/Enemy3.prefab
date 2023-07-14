@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1941509252105368258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 248.66, y: 39.63, z: 0}
-  m_LocalScale: {x: 2.4761, y: 2.4761, z: 2.4761}
+  m_LocalScale: {x: 8.100809, y: 8.100809, z: 8.100809}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -168,7 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SPEED: 2
-  walkTime: 5
+  walkTime: 8
   timer: 0
   walkRight: 0
-  health: 20
+  health: 40
+  damage: 20

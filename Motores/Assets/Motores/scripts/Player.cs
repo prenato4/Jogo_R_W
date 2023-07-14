@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
     
     
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +29,9 @@ public class Player : MonoBehaviour
         AN = GetComponent<Animator>();
         
         gamecontroller.instance.UpdateLives(health);
+
         
-        
-        
+
     }
 
     // Update is called once per frame
@@ -116,6 +117,8 @@ public class Player : MonoBehaviour
             isfire = false;
             AN.SetInteger("transition", 0);
         }
+
+        
     }
 
     public void Damage(int DM)
@@ -161,5 +164,6 @@ public class Player : MonoBehaviour
             gamecontroller.instance.GameOver();
         }
     }
+
     
 }

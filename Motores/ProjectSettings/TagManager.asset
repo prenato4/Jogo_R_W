@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - animals
+  - checkpoint
   layers:
   - Default
   - TransparentFX
