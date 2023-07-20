@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     private Animator AN;
     private float M;
 
-    
+    private bool canFire = true;
     
     
     // Start is called before the first frame update
@@ -98,10 +98,12 @@ public class Player : MonoBehaviour
 
     IEnumerator ATA()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (canFire && Input.GetKeyDown(KeyCode.F))
         {
+            canFire = false;
             isfire = true;
             AN.SetInteger("transition", 3);
+            
             GameObject Power = Instantiate(power, spawn.position, spawn.rotation);
 
             if (transform.rotation.y == 0 )
@@ -116,6 +118,12 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             isfire = false;
             AN.SetInteger("transition", 0);
+            
+                // Aguarde um tempo antes de permitir que o personagem atire novamente
+                yield return new WaitForSeconds(0.3f);
+
+            // Defina canFire como verdadeiro para permitir que o personagem atire novamente
+            canFire = true;
         }
     }
 
