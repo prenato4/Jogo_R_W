@@ -19,18 +19,22 @@ public class Player : MonoBehaviour
     private float M;
 
     private bool canFire = true;
+
+    public Vector3 PosInicial;
+    
     
     
     // Start is called before the first frame update
     void Start()
     {
+        
         RIG = GetComponent<Rigidbody2D>();
 
         AN = GetComponent<Animator>();
         
         gamecontroller.instance.UpdateLives(health);
 
-        
+        PosInicial = transform.position;
 
     }
 
@@ -156,22 +160,24 @@ public class Player : MonoBehaviour
         gamecontroller.instance.UpdateLives(health);
     }
     
-    
-
-    private void OnCollisionEnter2D(Collision2D CO)
-    {
-
-        if (CO.gameObject.layer == 8)
-        {
-            gamecontroller.instance.GameOver();
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D CL)
     {
         if (CL.gameObject.layer == 6)
         {
             IsJumPing = false;
+        }
+        
+        if (CL.gameObject.tag == "queda")
+        {
+            health -= 1;
+            gamecontroller.instance.UpdateLives(health);
+            transform.position = PosInicial;
+        }
+        
+        else if (CL.gameObject.tag == "checkpoint")
+        {
+            PosInicial = CL.gameObject.transform.position;
         }
     }
 }

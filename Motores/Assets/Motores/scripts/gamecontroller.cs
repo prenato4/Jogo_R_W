@@ -60,6 +60,8 @@ public class gamecontroller : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    
+
     public void PauseGame()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -84,5 +86,5 @@ public class gamecontroller : MonoBehaviour
     }
 
     
-}
+ }
 

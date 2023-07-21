@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - animals
   - checkpoint
+  - queda
   layers:
   - Default
   - TransparentFX
