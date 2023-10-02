@@ -32,7 +32,7 @@ public class gamecontroller : MonoBehaviour
     void Start()
     {
         totalScore = PlayerPrefs.GetInt("score");
-        
+        Debug.Log(totalScore);
     }
 
     // Update is called once per frame
